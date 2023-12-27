@@ -1,5 +1,7 @@
 import pandas as pd
+
 from fastapi import FastAPI, UploadFile, File, HTTPException
+
 from typing import List
 from database.base import tasks
 from task_1.validator import validate_csv_data, validate_csv_file
