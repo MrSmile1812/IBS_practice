@@ -75,7 +75,7 @@ def update(task_id: int, new_status: bool) -> dict:
         current_task["status"] = new_status
         return {"status": 200, "data": current_task}
     except Exception:
-        return {"status code": 404, "info": "task not found"}
+        raise HTTPException(status_code=400, detail="task not found")
 
 
 @app.delete("/tasks/{task_id}")
@@ -84,7 +84,7 @@ def delete(task_id: int) -> dict:
         tasks.pop(task_id - 1)
         return {"status code": 200}
     except Exception:
-        return {"status code": 404, "info": "task not found"}
+        raise HTTPException(status_code=400, detail="task not found")
 
 
 # task_8
